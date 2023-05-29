@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Students;
-use App\Models\Activity;
+use App\Models\Activities;
 use Illuminate\Http\Request;
 
 class StudentController extends Controller
@@ -28,6 +28,18 @@ class StudentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+     public function store(Request $request)
+     {
+         $student = new Students();
+         $student->codigo = $request->input('codigo');
+         $student->nombres = $request->input('nombres');
+         $student->apellidos = $request->input('apellidos');
+         $student->save();
+         return response(json_encode([
+             "data" => "Estudiante registrado"
+         ]));
+     } 
 
     /**
      * Display the specified resource.
