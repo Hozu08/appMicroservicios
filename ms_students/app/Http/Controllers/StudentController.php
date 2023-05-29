@@ -36,6 +36,14 @@ class StudentController extends Controller
      * @return \Illuminate\Http\Response
      */
 
+    public function show($codigo)
+    {
+        $students = Students::find($codigo);
+        return response(json_encode([
+            "data" => $students
+        ]));
+    }
+
     /**
      * Update the specified resource in storage.
      *

@@ -19,7 +19,7 @@ $router->get('/', function () use ($router) {
 });
 
 $router->get('estudiantes', 'StudentController@index');
-$router->get('estudiante/{id}', 'StudentController@show');
+$router->get('estudiante/{codigo}', 'StudentController@show');
 $router->post('estudiante', 'StudentController@store');
 $router->put('estudiante/{id}', 'StudentController@update');
 $router->delete('estudiante/{id}', 'StudentController@destroy'); 
