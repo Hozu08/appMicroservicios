@@ -21,5 +21,5 @@ $router->get('/', function () use ($router) {
 $router->get('estudiantes', 'StudentController@index');
 $router->get('estudiante/{codigo}', 'StudentController@show');
 $router->post('estudiante', 'StudentController@store');
-$router->put('estudiante/{id}', 'StudentController@update');
-$router->delete('estudiante/{id}', 'StudentController@destroy'); 
+$router->put('estudiante/{codigo}', 'StudentController@update');
+$router->delete('estudiante/{codigo}', 'StudentController@destroy'); 

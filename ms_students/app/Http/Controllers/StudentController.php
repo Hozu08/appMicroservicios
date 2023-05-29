@@ -64,10 +64,36 @@ class StudentController extends Controller
      * @return \Illuminate\Http\Response
      */
 
+     public function update(Request $request, $code)
+    {
+        $student = Students::find($code);
+        $student->codigo = $request->input('codigo');
+        $student->nombres = $request->input('nombres');
+        $student->apellidos = $request->input('apellidos');
+        $student->save();
+        return response(json_encode([
+            "data" => "Estudiante actualizado"
+        ]));
+    }    
+
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+     public function destroy($code)
+     {
+         $student = Students::find($code);
+         if (empty($student)) {
+             return response(json_encode([
+                 "data" => "El usuario no existe"
+             ]), 404);
+         }
+         $student->delete();
+         return response(json_encode([
+             "data" => "Registro eliminado"
+         ]));
+     } 
 }
