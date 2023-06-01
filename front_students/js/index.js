@@ -1,5 +1,8 @@
 //Carga las funciones y demas una vez se a cargado completamente el HTML
 
+let addStudent = () => {};
+let start = () => {};
+
 $(document).ready(start = () => {
 
     //Trae los estudiantes en la base de datos
@@ -10,7 +13,7 @@ $(document).ready(start = () => {
     }).done((response) => {
         const dataJson = JSON.parse(response);
         const students = dataJson.data;
-        let iHtml ='';
+        let iHtml = '';
 
         students.forEach(student => {
             iHtml += '<tr>';
@@ -29,6 +32,9 @@ $(document).ready(start = () => {
         console.error(error);
     });
 
+    /*Permite ocultar o mostrar las ventanas de tabla estudiantes o agregar/modificar 
+    estudiante, ademas asigna el titulo y nombre de boton*/
+
     $('#agregarEBtn').click(() => {
         document.getElementById('containerMA').setAttribute('style', 'visibility:visible');
         document.getElementById('containerMain').setAttribute('style', 'visibility:hidden');
@@ -41,4 +47,30 @@ $(document).ready(start = () => {
         document.getElementById('containerMain').setAttribute('style', 'visibility:visible');
     });
 
+    $('#acceptMA').click(() => {
+        document.getElementById('containerMA').setAttribute('style', 'visibility:hidden');
+        document.getElementById('containerMain').setAttribute('style', 'visibility:visible');
+        start();
+    });
+
+    //Agregar estudiante
+
+    $('#acceptMA').click(addStudent = () => {
+        $code = $('#codeMA').val();
+        $name = $('#nameMA').val();
+        $lastname = $('#lastnameMA').val();    
+        $.ajax({
+            url: 'http://localhost:8000/estudiante',
+            method: 'post',
+            data:{
+                codigo: $code,
+                nombres: $name,
+                apellidos: $lastname
+            }
+        }).done(response=>{
+            const dataJson = JSON.parse(response);
+            const msg = dataJson.data; 
+            alert(msg);
+        })
+    });    
 });
