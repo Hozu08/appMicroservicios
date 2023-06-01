@@ -17,7 +17,7 @@ class StudentController extends Controller
     {
         $students = Students::all();
         $data = json_encode([
-            "data" => $students
+            "data" => $students 
         ]);
         return response($data, 200);
     }

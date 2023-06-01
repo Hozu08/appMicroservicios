@@ -22,4 +22,4 @@ $router->get('estudiantes', 'StudentController@index');
 $router->get('estudiante/{codigo}', 'StudentController@show');
 $router->post('estudiante', 'StudentController@store');
 $router->put('estudiante/{codigo}', 'StudentController@update');
-$router->delete('estudiante/{codigo}', 'StudentController@destroy'); 
+$router->delete('estudiante/{codigo}', 'StudentController@destroy');  

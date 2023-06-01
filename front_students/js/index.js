@@ -1,4 +1,9 @@
+//Carga las funciones y demas una vez se a cargado completamente el HTML
+
 $(document).ready(start = () => {
+
+    //Trae los estudiantes en la base de datos
+
     $.ajax({
         method:'get',
         url:'http://localhost:8000/estudiantes'
@@ -18,9 +23,22 @@ $(document).ready(start = () => {
             iHtml += '</tr>';
         });
 
-        $('#contenedorTE').append(iHtml);
+        $('#containerST').append(iHtml);
 
     }).fail((error) => {
         console.error(error);
     });
+
+    $('#agregarEBtn').click(() => {
+        document.getElementById('containerMA').setAttribute('style', 'visibility:visible');
+        document.getElementById('containerMain').setAttribute('style', 'visibility:hidden');
+        $('#title').text('Agregar estudiante');
+        $('#acceptMA').text('Agregar');
+    });
+
+    $('#closeMABtn').click(() => {
+        document.getElementById('containerMA').setAttribute('style', 'visibility:hidden');
+        document.getElementById('containerMain').setAttribute('style', 'visibility:visible');
+    });
+
 });
