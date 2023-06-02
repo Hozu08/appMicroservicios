@@ -64,9 +64,9 @@ class StudentController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-     public function update(Request $request, $code)
+     public function update(Request $request, $codigo)
     {
-        $student = Students::find($code);
+        $student = Students::find($codigo);
         $student->codigo = $request->input('codigo');
         $student->nombres = $request->input('nombres');
         $student->apellidos = $request->input('apellidos');

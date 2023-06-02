@@ -43,12 +43,6 @@ $(document).ready(start = () => {
         $('#acceptMA').text('Agregar');
     });
 
-    modifyW = ($code) => {
-        document.getElementById('containerMA').setAttribute('style', 'visibility:visible');
-        document.getElementById('containerMain').setAttribute('style', 'visibility:hidden');
-        $('#title').text('Modificar estudiante');
-        $('#acceptMA').text('Modificar');
-    }
 
     $('#closeMABtn').click(() => {
         document.getElementById('containerMA').setAttribute('style', 'visibility:hidden');
@@ -84,5 +78,28 @@ $(document).ready(start = () => {
 
     //Modificar estudiante
 
+    modifyW = ($code) => {
+        document.getElementById('containerMA').setAttribute('style', 'visibility:visible');
+        document.getElementById('containerMain').setAttribute('style', 'visibility:hidden');
+        $('#title').text('Modificar estudiante');
+        $('#acceptMA').text('Modificar');
 
+        $('#acceptMA').click(() => {
+            $codeM = $('#codeMA').val();
+            $name = $('#nameMA').val();
+            $lastname = $('#lastnameMA').val();
+            $.ajax({
+                url: 'http://localhost:8000/estudiante/' + $code,
+                method: 'put',
+                data:{
+                    codigo: $codeM,
+                    nombres: $name,
+                    apellidos: $lastname
+                }
+            }).done(response=>{
+                const dataJson = JSON.parse(response);
+                const msg = dataJson.data; 
+            })    
+        });   
+    }
 });
