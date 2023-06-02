@@ -2,6 +2,7 @@
 
 let addStudent = () => {};
 let start = () => {};
+let modifyW = () => {};
 
 $(document).ready(start = () => {
 
@@ -42,6 +43,13 @@ $(document).ready(start = () => {
         $('#acceptMA').text('Agregar');
     });
 
+    modifyW = ($code) => {
+        document.getElementById('containerMA').setAttribute('style', 'visibility:visible');
+        document.getElementById('containerMain').setAttribute('style', 'visibility:hidden');
+        $('#title').text('Modificar estudiante');
+        $('#acceptMA').text('Modificar');
+    }
+
     $('#closeMABtn').click(() => {
         document.getElementById('containerMA').setAttribute('style', 'visibility:hidden');
         document.getElementById('containerMain').setAttribute('style', 'visibility:visible');
@@ -73,4 +81,8 @@ $(document).ready(start = () => {
             alert(msg);
         })
     });    
+
+    //Modificar estudiante
+
+
 });
