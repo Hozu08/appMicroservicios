@@ -3,6 +3,7 @@
 let addStudent = () => {};
 let start = () => {};
 let modifyW = () => {};
+let deleteW = () => {};
 
 $(document).ready(start = () => {
 
@@ -101,5 +102,17 @@ $(document).ready(start = () => {
                 const msg = dataJson.data; 
             })    
         });   
+    }
+
+    //Eliminar estudiante
+
+    deleteW = ($code) => {
+        $.ajax({
+            url: 'http://localhost:8000/estudiante/' + $code,
+            method: 'delete',
+        }).done(response=>{
+            const dataJson = JSON.parse(response);
+            const msg = dataJson.data; 
+        });     
     }
 });

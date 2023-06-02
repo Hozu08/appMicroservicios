@@ -83,9 +83,9 @@ class StudentController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-     public function destroy($code)
+     public function destroy($codigo)
      {
-         $student = Students::find($code);
+         $student = Students::find($codigo);
          if (empty($student)) {
              return response(json_encode([
                  "data" => "El usuario no existe"
