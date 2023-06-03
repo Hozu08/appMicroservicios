@@ -2,6 +2,7 @@ let addStudent = () => {};
 let start = () => {};
 let modifyW = () => {};
 let deleteW = () => {};
+let scoreW = () => {};
 
 //Carga las funciones y demas una vez se a cargado completamente el HTML
 
@@ -51,7 +52,7 @@ $(document).ready(start = () => {
         document.getElementById('codeMA').setAttribute('type', 'number');
         document.getElementById('containerMA').setAttribute('style', 'visibility:visible');
         document.getElementById('containerMain').setAttribute('style', 'visibility:hidden');
-        $('#title').text('Agregar estudiante');
+        $('#titleMA').text('Agregar estudiante');
         $('#acceptMA').text('Agregar');
         $('#acceptMA').click(addStudent = () => {
             document.getElementById('containerMA').setAttribute('style', 'visibility:hidden');
@@ -83,7 +84,7 @@ $(document).ready(start = () => {
         $('#codeP').html($code);
         document.getElementById('containerMA').setAttribute('style', 'visibility:visible');
         document.getElementById('containerMain').setAttribute('style', 'visibility:hidden');
-        $('#title').text('Modificar estudiante');
+        $('#titleMA').text('Modificar estudiante');
         $('#acceptMA').text('Modificar');
         $('#acceptMA').click(() => {
             document.getElementById('containerMA').setAttribute('style', 'visibility:hidden');
@@ -119,5 +120,11 @@ $(document).ready(start = () => {
             const msg = dataJson.data; 
             start();
         });     
+    }
+
+    //Tabla de actividades
+
+    scoreW = ($code) => {
+        
     }
 });

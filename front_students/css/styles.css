@@ -15,7 +15,9 @@ body{
     visibility: hidden;
 }
 
-
+#containerS{
+    visibility: hidden;
+}
 
 #titleE{
     position: fixed;
@@ -79,4 +81,18 @@ td{
 #closeMABtn{
     margin-left: 95%;
     padding: 5px;
+}
+
+#containerS{
+    position: absolute;
+    z-index: 2;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: rgb(255, 255, 255);
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 10px;
+    padding: 5px;    
+    box-shadow: 5px 10px 5px rgb(46, 64, 83);
 }

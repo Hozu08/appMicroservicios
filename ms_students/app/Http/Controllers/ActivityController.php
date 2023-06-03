@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Students;
+use App\Models\Activities;
 use Illuminate\Http\Request;
 
-class StudentController extends Controller
+class ActivityController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,9 @@ class StudentController extends Controller
      */
     public function index()
     {
-        $students = Students::all();
+        $activity = Activities::all();
         $data = json_encode([
-            "data" => $students 
+            "data" => $activity 
         ]);
         return response($data, 200);
     }
@@ -30,13 +30,13 @@ class StudentController extends Controller
 
      public function store(Request $request)
      {
-         $student = new Students();
-         $student->codigo = $request->input('codigo');
-         $student->nombres = $request->input('nombres');
-         $student->apellidos = $request->input('apellidos');
-         $student->save();
+         $activity = new Activities();
+         $activity->descripcion = $request->input('descripcion');
+         $activity->nota = $request->input('nota');
+         $activity->codigoEstudiante = $request->input('codigoEstudiante');
+         $activity->save();
          return response(json_encode([
-             "data" => "Estudiante registrado"
+             "data" => "Actividad registrada"
          ]));
      } 
 
@@ -49,9 +49,10 @@ class StudentController extends Controller
 
     public function show($codigo)
     {
-        $students = Students::find($codigo);
+        $activity = Activities::all();
+        $activity = Activities::where('codigoEstudiante', $codigo)->get();
         return response(json_encode([
-            "data" => $students
+            "data" => $activity
         ]));
     }
 
@@ -65,13 +66,12 @@ class StudentController extends Controller
 
      public function update(Request $request, $codigo)
     {
-        $student = Students::find($codigo);
-        $student->codigo = $request->input('codigo');
-        $student->nombres = $request->input('nombres');
-        $student->apellidos = $request->input('apellidos');
-        $student->save();
+        $activity = Activities::find($codigo);
+        $activity->descripcion = $request->input('descripcion');
+        $activity->nota = $request->input('nota');
+        $activity->save();
         return response(json_encode([
-            "data" => "Estudiante actualizado"
+            "data" => "Actividad actualizada"
         ]));
     }    
 
@@ -82,17 +82,17 @@ class StudentController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-     public function destroy($codigo)
+     public function destroy($id)
      {
-         $student = Students::find($codigo);
-         if (empty($student)) {
+         $activity = Activities::find($id);
+         if (empty($activity)) {
              return response(json_encode([
-                 "data" => "El estudiante no existe"
+                 "data" => "La actividad no existe"
              ]), 404);
          }
-         $student->delete();
+         $activity->delete();
          return response(json_encode([
-             "data" => "Estudiante eliminado"
+             "data" => "Actividad eliminada"
          ]));
      } 
 }
