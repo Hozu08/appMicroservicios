@@ -76,10 +76,16 @@ td{
     border-radius: 10px;
     padding: 5px;    
     box-shadow: 5px 10px 5px rgb(46, 64, 83);
+    padding: 10px;
 }
 
 #closeMABtn{
     margin-left: 95%;
+    padding: 5px;
+}
+
+#closeS{
+    margin-left: 90%;
     padding: 5px;
 }
 
@@ -95,4 +101,5 @@ td{
     border-radius: 10px;
     padding: 5px;    
     box-shadow: 5px 10px 5px rgb(46, 64, 83);
+    padding: 10px;
 }

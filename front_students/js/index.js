@@ -42,6 +42,14 @@ $(document).ready(start = () => {
         document.getElementById('containerMain').setAttribute('style', 'visibility:visible');
     });
 
+        //Cierra la ventana agregar/modificar estudiante
+
+    $('#closeS').click(() => {
+        document.getElementById('containerS').setAttribute('style', 'visibility:hidden');
+        document.getElementById('containerMain').setAttribute('style', 'visibility:visible');
+    });
+
+
     //Agregar estudiante
 
     $('#agregarEBtn').click(() => {
@@ -125,6 +133,46 @@ $(document).ready(start = () => {
     //Tabla de actividades
 
     scoreW = ($code) => {
-        
+        document.getElementById('containerS').setAttribute('style', 'visibility:visible');
+        document.getElementById('containerMain').setAttribute('style', 'visibility:hidden');
+
+        $.ajax({
+            method:'get',
+            url:'http://localhost:8000/estudiante/' + $code
+        }).done((response) => {
+            const dataJson = JSON.parse(response);
+            const student = dataJson.data;
+    
+            $('#codeS').html(student.codigo);
+            $('#nameS').html(student.nombres);
+            $('#lastnameS').html(student.apellidos);
+        }).fail((error) => {
+            console.error(error);
+        });
+
+        $.ajax({
+            method:'get',
+            url:'http://localhost:8000/actividad/' + $code
+        }).done((response) => {
+            const dataJson = JSON.parse(response);
+            const activities = dataJson.data;
+            let iHtml = '';
+    
+            activities.forEach(activity => {
+                iHtml +=    '<tr>';
+                iHtml +=        '<td>' + activity.descripcion + '</td>';
+                iHtml +=        '<td>' + activity.nota + '</td>';
+                iHtml +=        '<td><button onclick="modifyAW(' + activity.id + ')" type="button">Modificar</button></td>';
+                iHtml +=        '<td><button onclick="deleteAW(' + activity.id + ')" type="button">Eliminar</button></td>';
+                iHtml +=    '</tr>';
+            });
+    
+            $('#contentAT').html(iHtml);
+    
+        }).fail((error) => {
+            console.error(error);
+        });
+    
+    
     }
 });
