@@ -52,6 +52,8 @@ $(document).ready(start = () => {
         document.getElementById('containerMain').setAttribute('style', 'visibility:visible');
     });
 
+    //Cierra la ventana agregar/modificar actividad
+
     $('#closeAMABtn').click(() => {
         document.getElementById('containerS').setAttribute('style', 'visibility:visible');
         document.getElementById('containerAMA').setAttribute('style', 'visibility:hidden');
