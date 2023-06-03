@@ -1,3 +1,71 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient(to bottom, rgb(46, 64, 83), white);
+    position: relative;
+}
+
 #containerMA{
     visibility: hidden;
+}
+
+
+
+#titleE{
+    position: fixed;
+    background: linear-gradient(to bottom, black, transparent);
+    color: whitesmoke;
+    text-align: center;
+    width: 100vw;
+    padding: 2vh;
+    z-index: 3;
+}
+
+#containerMain{
+    position: absolute;
+    z-index: 2;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: rgb(255, 255, 255);
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 10px;
+    padding: 5px;
+}
+
+button{
+    padding: 3px;
+    border-color: rgb(78, 108, 141);
+    border-radius: 5px;
+    background-color: rgba(22, 31, 41, 0.5);
+    color: whitesmoke;
+}
+
+#agregarEBtn{
+    margin: 5px;
+}
+
+#containerMA{
+    position: absolute;
+    z-index: 2;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: rgb(255, 255, 255);
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 10px;
+    padding: 5px;    
+}
+
+#closeMABtn{
+    margin-left: 95%;
+    padding: 5px;
 }

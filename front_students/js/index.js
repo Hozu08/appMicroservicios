@@ -34,13 +34,14 @@ $(document).ready(start = () => {
         console.error(error);
     });
 
-    /*Permite ocultar o mostrar las ventanas de tabla estudiantes o agregar/modificar 
-    estudiante, ademas asigna el titulo y nombre de boton*/
+    //Cierra la ventana agregar/modificar estudiante
 
     $('#closeMABtn').click(() => {
         document.getElementById('containerMA').setAttribute('style', 'visibility:hidden');
         document.getElementById('containerMain').setAttribute('style', 'visibility:visible');
     });
+
+    //Agregar estudiante
 
     $('#agregarEBtn').click(() => {
         document.getElementById('containerMA').setAttribute('style', 'visibility:visible');
@@ -69,6 +70,8 @@ $(document).ready(start = () => {
             })
         });    
     });
+
+    //modificar estudiante
 
     modifyW = ($code) => {
         document.getElementById('codeMA').setAttribute('type', 'hidden');
