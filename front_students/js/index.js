@@ -207,7 +207,34 @@ $(document).ready(start = () => {
                     const dataJson = JSON.parse(response);
                     const msg = dataJson.data; 
                 })
-            });    
+            });        
         });      
+
+    //Modificar actividad
+
+        modifyAW = ($id) => {
+            document.getElementById('containerAMA').setAttribute('style', 'visibility:visible');
+            document.getElementById('containerS').setAttribute('style', 'visibility:hidden');
+            $('#titleAMA').text('Modificar actividad');
+            $('#acceptAMA').text('Modificar');
+            $('#acceptAMA').click(addActivity = () => {
+                document.getElementById('containerAMA').setAttribute('style', 'visibility:hidden');
+                document.getElementById('containerS').setAttribute('style', 'visibility:visible');
+                
+                $descripcion = $('#descriptionA').val();
+                $nota = $('#scoreA').val();
+                $.ajax({
+                    url: 'http://localhost:8000/actividad/' + $id,
+                    method: 'put',
+                    data:{
+                        descripcion: $descripcion,
+                        nota: $nota,
+                    }
+                }).done(response=>{
+                    const dataJson = JSON.parse(response);
+                    const msg = dataJson.data; 
+                })
+            });        
+        }
     }
 });

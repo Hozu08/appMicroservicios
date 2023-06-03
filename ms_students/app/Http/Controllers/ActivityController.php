@@ -64,9 +64,9 @@ class ActivityController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-     public function update(Request $request, $codigo)
+     public function update(Request $request, $id)
     {
-        $activity = Activities::find($codigo);
+        $activity = Activities::find($id);
         $activity->descripcion = $request->input('descripcion');
         $activity->nota = $request->input('nota');
         $activity->save();
