@@ -1,8 +1,7 @@
-
-    let addStudent = () => {};
-    let start = () => {};
-    let modifyW = () => {};
-    let deleteW = () => {};
+let addStudent = () => {};
+let start = () => {};
+let modifyW = () => {};
+let deleteW = () => {};
 
 //Carga las funciones y demas una vez se a cargado completamente el HTML
 
@@ -19,16 +18,6 @@ $(document).ready(start = () => {
         let iHtml = '';
 
         students.forEach(student => {
-            iHtml += '<thead>';
-            iHtml +=    '<tr>';
-            iHtml +=        '<th>Código</th>';
-            iHtml +=        '<th>Nombre</th>';
-            iHtml +=        '<th></th>';
-            iHtml +=        '<th></th>';
-            iHtml +=        '<th></th>';
-            iHtml +=    '</tr>';
-            iHtml += '</thead>';
-            iHtml += '<tbody>';
             iHtml +=    '<tr>';
             iHtml +=        '<td>' + student.codigo + '</td>';
             iHtml +=        '<td>' + student.nombres + '</td>';
@@ -37,10 +26,9 @@ $(document).ready(start = () => {
             iHtml +=        '<td><button onclick="modifyW(' + student.codigo + ')" type="button">Modificar</button></td>';
             iHtml +=        '<td><button onclick="deleteW(' + student.codigo + ')" type="button">Eliminar</button></td>';
             iHtml +=    '</tr>';
-            iHtml += '</tbody>'
         });
 
-        $('#containerST').html(iHtml);
+        $('#contentT').html(iHtml);
 
     }).fail((error) => {
         console.error(error);
@@ -83,6 +71,8 @@ $(document).ready(start = () => {
     });
 
     modifyW = ($code) => {
+        document.getElementById('codeMA').setAttribute('type', 'hidden');
+        $('#codeP').html($code);
         document.getElementById('containerMA').setAttribute('style', 'visibility:visible');
         document.getElementById('containerMain').setAttribute('style', 'visibility:hidden');
         $('#title').text('Modificar estudiante');
@@ -91,7 +81,7 @@ $(document).ready(start = () => {
             document.getElementById('containerMA').setAttribute('style', 'visibility:hidden');
             document.getElementById('containerMain').setAttribute('style', 'visibility:visible');
 
-            $codeM = $('#codeMA').val();
+            $codeM = $code;
             $name = $('#nameMA').val();
             $lastname = $('#lastnameMA').val();
             $.ajax({
