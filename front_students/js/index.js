@@ -87,6 +87,7 @@ $(document).ready(start = () => {
             }).done(response=>{
                 const dataJson = JSON.parse(response);
                 const msg = dataJson.data; 
+                alert(msg);
                 start();
             })
         });    
@@ -119,6 +120,7 @@ $(document).ready(start = () => {
             }).done(response=>{
                 const dataJson = JSON.parse(response);
                 const msg = dataJson.data; 
+                alert(msg);
                 start();
             })    
         });    
@@ -133,6 +135,7 @@ $(document).ready(start = () => {
         }).done(response=>{
             const dataJson = JSON.parse(response);
             const msg = dataJson.data; 
+            alert(msg);
             start();
         });     
     }
@@ -206,6 +209,7 @@ $(document).ready(start = () => {
                 }).done(response=>{
                     const dataJson = JSON.parse(response);
                     const msg = dataJson.data; 
+                    alert(msg);
                 })
             });        
         });      
@@ -233,8 +237,22 @@ $(document).ready(start = () => {
                 }).done(response=>{
                     const dataJson = JSON.parse(response);
                     const msg = dataJson.data; 
+                    alert(msg);
                 })
             });        
         }
+
+        //Eliminar actividad
+
+        deleteAW = ($id) => {
+            $.ajax({
+                url: 'http://localhost:8000/actividad/' + $id,
+                method: 'delete',
+            }).done(response=>{
+                const dataJson = JSON.parse(response);
+                const msg = dataJson.data; 
+                alert(msg);
+            });     
+        }    
     }
 });
