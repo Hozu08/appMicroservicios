@@ -19,6 +19,10 @@ body{
     visibility: hidden;
 }
 
+#containerAMA{
+    visibility: hidden;
+}
+
 #titleE{
     position: fixed;
     background: linear-gradient(to bottom, black, transparent);
@@ -90,6 +94,21 @@ td{
 }
 
 #containerS{
+    position: absolute;
+    z-index: 2;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: rgb(255, 255, 255);
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 10px;
+    padding: 5px;    
+    box-shadow: 5px 10px 5px rgb(46, 64, 83);
+    padding: 10px;
+}
+
+#containerAMA{
     position: absolute;
     z-index: 2;
     top: 50vh;

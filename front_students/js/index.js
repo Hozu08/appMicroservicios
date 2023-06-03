@@ -3,6 +3,9 @@ let start = () => {};
 let modifyW = () => {};
 let deleteW = () => {};
 let scoreW = () => {};
+let addActivity = () => {};
+let modifyAW = () => {};
+let deleteAW = () => {};
 
 //Carga las funciones y demas una vez se a cargado completamente el HTML
 
@@ -42,13 +45,17 @@ $(document).ready(start = () => {
         document.getElementById('containerMain').setAttribute('style', 'visibility:visible');
     });
 
-        //Cierra la ventana agregar/modificar estudiante
+    //Cierra la ventana agregar/modificar actividad
 
     $('#closeS').click(() => {
         document.getElementById('containerS').setAttribute('style', 'visibility:hidden');
         document.getElementById('containerMain').setAttribute('style', 'visibility:visible');
     });
 
+    $('#closeAMABtn').click(() => {
+        document.getElementById('containerS').setAttribute('style', 'visibility:visible');
+        document.getElementById('containerAMA').setAttribute('style', 'visibility:hidden');
+    });
 
     //Agregar estudiante
 
@@ -172,7 +179,35 @@ $(document).ready(start = () => {
         }).fail((error) => {
             console.error(error);
         });
-    
-    
+        
+        //Agregar actividad
+
+        $('#agregarABtn').click(() => {
+            $('#descritionA').val('');
+            $('#scoreA').val('');
+            document.getElementById('containerAMA').setAttribute('style', 'visibility:visible');
+            document.getElementById('containerS').setAttribute('style', 'visibility:hidden');
+            $('#titleAMA').text('Agregar actividad');
+            $('#acceptAMA').text('Agregar');
+            $('#acceptAMA').click(addActivity = () => {
+                document.getElementById('containerAMA').setAttribute('style', 'visibility:hidden');
+                document.getElementById('containerS').setAttribute('style', 'visibility:visible');
+                
+                $descripcion = $('#descriptionA').val();
+                $nota = $('#scoreA').val();
+                $.ajax({
+                    url: 'http://localhost:8000/actividad',
+                    method: 'post',
+                    data:{
+                        descripcion: $descripcion,
+                        nota: $nota,
+                        codigoEstudiante: $code
+                    }
+                }).done(response=>{
+                    const dataJson = JSON.parse(response);
+                    const msg = dataJson.data; 
+                })
+            });    
+        });      
     }
 });

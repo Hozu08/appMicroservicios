@@ -6,6 +6,9 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
     <body>
+
+        <!-- Ventana principal -->
+
         <h1 id="titleE">Registro de Estudiantes</h1>
 
         <div id="containerMain">
@@ -23,6 +26,8 @@
             </table>
             <button id="agregarEBtn">Agregar estudiante</button>    
         </div>
+
+        <!-- Ventana agregar/modificar estudiante -->
 
         <div id="containerMA">
             <button id="closeMABtn" type="button">X</button>
@@ -43,6 +48,8 @@
                 <button id="acceptMA" type="button"></button>
             </form>
         </div>
+
+        <!-- Ventana tabla de actividades -->
 
         <div id="containerS">
             <button id="closeS">X</button>
@@ -67,6 +74,25 @@
                 </thead>
                 <tbody id="contentAT"></tbody>
             </table>
+            <button id="agregarABtn">Agregar Actividad</button>    
+        </div>
+
+        <!-- Ventana agregar/modificar actividad -->
+
+        <div id="containerAMA">
+            <button id="closeAMABtn" type="button">X</button>
+            <h2 id="titleAMA"></h2>
+            <form>
+                <label for="descriptionA">
+                    <span>Descripción: </span>
+                    <input type="text" id="descriptionA" name="descriptionA" required>
+                </label>
+                <label for="scoreA">
+                    <span>Nota: </span>
+                    <input type="number" id="scoreA" name="scoreA" min="0" max="5" step="any">
+                </label>
+                <button id="acceptAMA" type="button"></button>
+            </form>
         </div>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
