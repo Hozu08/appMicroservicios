@@ -44,6 +44,11 @@ $(document).ready(start = () => {
     //Agregar estudiante
 
     $('#agregarEBtn').click(() => {
+        $('#codeMA').val('');
+        $('#nameMA').val('');
+        $('#lastnameMA').val('');
+        $('#codeP').html('');
+        document.getElementById('codeMA').setAttribute('type', 'number');
         document.getElementById('containerMA').setAttribute('style', 'visibility:visible');
         document.getElementById('containerMain').setAttribute('style', 'visibility:hidden');
         $('#title').text('Agregar estudiante');
